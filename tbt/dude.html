@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="player">
+        <div class="imgbox">
+            <img src="thesmithsbus.jpg" alt="bus">
+        </div>
+    </div>
+    
+    <audio id="audioPlayer" src="lightnevergoesout.mp3" controls></audio>
+
+    <p style="font-family: impact; position: absolute; top: 17%; left: 12%;
+     font-size: 26px; color:rgb(20, 19, 22);">There Is a Light That Never Goes Out</p>
+    <p style="font-family: impact; position: absolute; top: 123%; left: 20%;
+     font-size: 26px; color:rgb(20, 19, 22);">Be My Baby</p>
+    <div class="scroll-image">
+        <img src="bemyb.jpg" alt="bemy">
+    </div>
+
+    <div class="scroll-image2">
+        <img src="tryagain.jpg" alt="trn">
+    </div>
+    
+    <audio id="audioPlayer2" src="bemybabyronettes.mp3" controls></audio>
+
+    <audio id="audioPlayer3" src="tryagain.mp3" controls style="position: absolute; top: 275%; left: 14%;"></audio>
+    <p style="font-family: impact; position: absolute; top: 216%; left: 22%; font-size: 26px;">Try Again</p>
+    
+    <p id="displayText" style="display: none; position: absolute; top: 30%; left: 45%; font-family: verdana; 
+    font-size: 22px; color: rgb(28, 6, 68);">And if a double-decker bus crashes into us <br>
+        To die by your side <br>
+        Is such a heavenly way to die</p>
+    
+    <p id="secondText" style="display: none; position: absolute; top: 50%; left: 45%; font-family: verdana; 
+    font-size: 22px; color: rgb(28, 6, 68);">And if a ten ton truck kills the both of us <br>
+        To die by your side <br> Well, the pleasure, the privilege is mine</p>
+    
+        <p id="thirdText" style="display: none; position: absolute; top: 135%; left: 45%; font-family: verdana; font-size: 22px; color: rgb(28, 6, 68);">So won't you, please</p>
+        <p id="fourthText" style="display: none; position: absolute; top: 140%; left: 45%; font-family: verdana; font-size: 22px; color: rgb(28, 6, 68);">Be my, be my baby</p>
+        <p id="fifthText" style="display: none; position: absolute; top: 145%; left: 45%; font-family: verdana; font-size: 22px; color: rgb(28, 6, 68);">Be my baby (My one and only baby)</p>
+        <p id="sixthText" style="display: none; position: absolute; top: 150%; left: 45%; font-family: verdana; font-size: 22px; color: rgb(28, 6, 68);">Say you'll be my darlin' (My one and only baby)</p>
+        <p id="seventhText" style="display: none; position: absolute; top: 240%; left: 45%; font-family: verdana; font-size: 22px; color:rgb(28, 6, 68);">
+            So whenever you ask me again how I feel
+        </p>
+        <p id="eightText" style="display: none; position: absolute; top: 245%; left: 45%; font-family: verdana; font-size: 22px; color:rgb(28, 6, 68)">
+            Please remember my answer is you
+        </p>
+
+    <style>
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .fade-in {
+            display: block;
+            animation: fadeIn 2s;
+            opacity: 1;
+        }
+    </style>
+
+    <script>
+        const audio = document.getElementById("audioPlayer");
+        const text1 = document.getElementById("displayText");
+        const text2 = document.getElementById("secondText");
+
+        const startTime1 = 150, endTime1 = 180, startTime2 = 165, endTime2 = 180;
+
+        audio.addEventListener("play", () => { audio.currentTime = startTime1; });
+
+        audio.addEventListener("timeupdate", () => {
+            text1.style.display = audio.currentTime >= startTime1 && audio.currentTime < endTime1 ? "block" : "none";
+            text1.classList.toggle("fade-in", audio.currentTime >= startTime1 && audio.currentTime < endTime1);
+
+            text2.style.display = audio.currentTime >= startTime2 && audio.currentTime < endTime2 ? "block" : "none";
+            text2.classList.toggle("fade-in", audio.currentTime >= startTime2 && audio.currentTime < endTime2);
+
+            if (audio.currentTime >= endTime2) audio.pause();
+        });
+
+        const audio2 = document.getElementById("audioPlayer2");
+        const text3 = document.getElementById("thirdText"), text4 = document.getElementById("fourthText");
+        const text5 = document.getElementById("fifthText"), text6 = document.getElementById("sixthText");
+        
+
+        const startTime3 = 36, endTime3 = 52, startTime4 = 38, endTime4 = 52;
+        const startTime5 = 40, endTime5 = 52, startTime6 = 43, endTime6 = 52;
+        
+
+        audio2.addEventListener("play", () => { audio2.currentTime = startTime3; });
+
+        audio2.addEventListener("timeupdate", () => {
+            text3.style.display = audio2.currentTime >= startTime3 && audio2.currentTime < endTime3 ? "block" : "none";
+            text3.classList.toggle("fade-in", audio2.currentTime >= startTime3 && audio2.currentTime < endTime3);
+
+            text4.style.display = audio2.currentTime >= startTime4 && audio2.currentTime < endTime4 ? "block" : "none";
+            text4.classList.toggle("fade-in", audio2.currentTime >= startTime4 && audio2.currentTime < endTime4);
+
+            text5.style.display = audio2.currentTime >= startTime5 && audio2.currentTime < endTime5 ? "block" : "none";
+            text5.classList.toggle("fade-in", audio2.currentTime >= startTime5 && audio2.currentTime < endTime5);
+
+            text6.style.display = audio2.currentTime >= startTime6 && audio2.currentTime < endTime6 ? "block" : "none";
+            text6.classList.toggle("fade-in", audio2.currentTime >= startTime6 && audio2.currentTime < endTime6);
+
+            if (audio2.currentTime >= endTime3) audio2.pause();
+        });
+
+        const audio3 = document.getElementById("audioPlayer3");
+        
+        const text7 = document.getElementById("seventhText"), text8 = document.getElementById("eightText");
+
+        const startTime7 = 33, endTime7 = 50, startTime8 = 41, endTime8 = 50;
+
+        
+        audio3.addEventListener("play", () => {
+            audio3.currentTime = 30;
+        });
+
+        audio3.addEventListener("timeupdate", () => {
+            text7.style.display = audio3.currentTime >= startTime7 && audio3.currentTime < endTime7 ? "block" : "none";
+            text7.classList.toggle("fade-in", audio3.currentTime >= startTime7 && audio3.currentTime < endTime7);
+
+            text8.style.display = audio3.currentTime >= startTime8 && audio3.currentTime < endTime8 ? "block" : "none";
+            text8.classList.toggle("fade-in", audio3.currentTime >= startTime8 && audio3.currentTime < endTime8);
+        });
+    </script>
+</body>
+</html>

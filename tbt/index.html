@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="styletwo.css" />
+</head>
+<body>
+    <a href="dude.html"></a>
+    <div class="glow">
+        <p style="position: absolute; top: 30%; left: 26%; font-family: verdana; font-size: 30px; color: white;">
+        Bonjour! On the next page of this website, </p>
+        <p style="position: absolute; top: 35%; left: 25%; font-family: verdana; font-size: 30px; color: white;"> I'll share some 
+        songs that remind me of you. </p>
+        <p style="position: absolute; top: 40%; left: 20%; font-family: verdana; font-size: 30px; color: white;">For now, there are only three songs,
+        but I'll add more </p> 
+        <p style="position: absolute; top: 45%; left: 27%; font-family: verdana; font-size: 30px; color: white;">over time since it's a bit time-consuming. </p>
+    </div>
+    <div class="shooting-stars"></div>
+
+    <div> <a href="dude.html">
+        <button class="button">Next</button>
+        </a>
+      </div>
+
+      <script>
+        const starsContainer = document.querySelector('.shooting-stars');
+
+function createStar(isLarger = false) {
+    const star = document.createElement('div');
+    star.className = isLarger ? 'star larger-star' : 'star';
+    const x = Math.random() * 100;
+    const duration = Math.random() * 1 + 1;
+    const delay = Math.random() * 2;
+    star.style.left = `${x}vw`;
+    star.style.animation = `shooting ${duration}s linear ${delay}s infinite`;
+    starsContainer.appendChild(star);
+    
+}
+
+for (let i = 0; i < 10; i++) {
+    createStar();
+}
+createStar(true);
+    </script>
+</body>
+</html>
